@@ -1,14 +1,54 @@
-$primary-color: blue;
+$primary-color: rgba(27, 112, 239, 0.279);
+$border-color: rgba(255, 255, 255, 0.629);
+$text-color: rgb(213, 213, 213);
+$shadow-color: rgba(0, 0, 0, 0.251);
+$blur-effect: blur(10px);
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
 }
 
-.container{
-    height: 700px;
-    width: 500px;
-    background-color: rgb(255, 255, 255, .1);
-    color: red;
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: $text-color;
+    font-size: 2rem;
+    padding: 20px;
+}
+
+#bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(80%);
+    }
 }
