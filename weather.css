@@ -44,4 +44,117 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
   filter: brightness(80%);
+}
+
+.weather-container {
+  position: relative;
+  width: 60%;
+  max-width: 700px;
+  padding: 30px;
+  background-color: rgba(27, 112, 239, 0.279);
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.629);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.251);
+  text-align: center;
+  margin: 50px auto;
+}
+@media (max-width: 600px) {
+  .weather-container {
+    padding: 10px;
+    width: 95%;
+  }
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.search-box input {
+  width: 60%;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.search-box button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: rgb(213, 213, 213);
+}
+@media (max-width: 600px) {
+  .search-box input {
+    width: 80%;
+  }
+}
+
+.weather-info {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather-info .weather-icon-container {
+  width: 50%;
+  justify-content: center;
+}
+.weather-info .weather-icon-container .weather-icon {
+  width: 90%;
+  height: auto;
+}
+.weather-info .weather-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+.weather-info .weather-info-container .temperature {
+  font-size: 50px;
+  font-weight: bold;
+}
+.weather-info .weather-info-container .location {
+  font-size: 24px;
+}
+.weather-info .weather-info-container .condition {
+  font-size: 18px;
+  opacity: 0.8;
+}
+.weather-info .weather-info-container .extra-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+.weather-info .weather-info-container .extra-info img {
+  width: 15px;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .weather-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+.forecast .days {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.forecast .days img {
+  width: 20px;
+  height: auto;
 }/*# sourceMappingURL=weather.css.map */
