@@ -22,66 +22,13 @@
 
         <div class="weather-container">
 
-            <div class="search-box">
-                <input type="text" placeholder="Enter a city">
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <form class="search-box">
+                <input type="text" class="cityInput" placeholder="Enter a city">
+                <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
-            </div>
+            </form>
 
-            <div class="weather-info">
-                <div class="weather-icon-container">
-                    <img src="./media/sun.png" alt="" class="weather-icon">
-                </div>
-
-                <div class="weather-info-container">
-                    <h1 class="temperature">20°C</h1>
-                    <h4 class="location">Azilal</h4>
-                    <p class="condition">Clear sky</p>
-                    <div class="extra-info">
-                        <div>
-                            <img src="./media/humidity.png" alt="">
-                            <p>60%</p>
-                            <p>Humidity</p>
-                        </div>
-                        <div>
-                            <img src="./media/windi.png" alt="">
-                            <p>2Km/h</p>
-                            <p>Wind Speed</p>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-
-            <div class="forecast">
-                <div class="days">
-                    <img src="./media/sunny.png" alt="weather icons">
-                    <p>Thuesday</p>
-                    <p>20°C</p>
-                </div>
-
-                <div class="days">
-                    <img src="./media/sun.png" alt="weather icons">
-                    <p>Wednesday.</p>
-                    <p>20°C</p>
-                </div>
-
-                <div class="days">
-                    <img src="./media/cloudy.png" alt="weather icons">
-                    <p>Thursday.</p>
-                    <p>20°C</p>
-                </div>
-
-                <div class="days">
-                    <img src="./media/wind.png" alt="weather icons">
-                    <p>Friday</p>
-                    <p>20°C</p>
-                </div>
-
-                <div class="days">
-                    <img src="./media/sun.png" alt="weather icons">
-                    <p>Saturday</p>
-                    <p>20°C</p>
-                </div>
+            <div class="card" style="display: none;">
                 
             </div>
         </div>
