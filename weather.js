@@ -1,11 +1,11 @@
-
-const searchBox = document.querySelector(".search-box");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
+const favBtn = document.querySelector(".fav-btn");
+const searchBtn = document.querySelector(".search-btn");
 
 const apiKey = "1f9410f779ca72a9af3f0612cfe1bbbe";
 
-searchBox.addEventListener("submit", async event => {
+searchBtn.onclick = async (event) => {
 
     event.preventDefault();
 
@@ -24,7 +24,7 @@ searchBox.addEventListener("submit", async event => {
     else {
         displayError("Please enter a city !");
     }
-});
+}
 
 async function getWeatherData(city) {
     
@@ -56,7 +56,7 @@ function displayWeatherInfo(data) {
             </div>
 
             <div class="weather-info-container">
-                <h1 class="temperature">${(temp - 273.15).toFixed(1)}°C</h1>
+                <h1 class="temperature">${(temp - 273.15).toFixed(0)}°C</h1>
                 <h4 class="location">${city},${country}</h4>
                 <p class="condition">${description}</p>
                 <div class="extra-info">
