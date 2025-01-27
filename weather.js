@@ -2,6 +2,7 @@ const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
 const favBtn = document.querySelector(".fav-btn");
 const searchBtn = document.querySelector(".search-btn");
+const favSection = document.querySelector(".favs");
 
 const apiKey = "1f9410f779ca72a9af3f0612cfe1bbbe";
 
@@ -153,3 +154,84 @@ function displayError(message) {
     card.style.display = "block";
     card.appendChild(errorDisplay);
 }
+
+
+
+const favorites = JSON.parse(localStorage.getItem("favoriteCities")) || [];
+
+function displayFavorites() {
+    favSection.innerHTML = "";
+
+    favorites.forEach(async (city) => {
+        try {
+            const data = await getWeatherData(city);
+            const emoji = getWeatherEmoji(data.weather[0].id);
+
+            const favDiv = document.createElement("div");
+            favDiv.classList.add("fav-container");
+            favDiv.innerHTML = `
+                <div class="fav-box">
+                    <p>${data.name}</p>
+                    <button class="delete-btn" data-city="${data.name}">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="fav-info">
+                    <div class="fav-icon-container">
+                        <img src="${emoji}" alt="" class="fav-icon">
+                    </div>
+                    <div class="fav-info-container">
+                        <h1 class="fav-temperature">${(data.main.temp - 273.15).toFixed(0)}°C</h1>
+                        <h4 class="fav-location">${data.name}, ${data.sys.country}</h4>
+                        <p class="fav-condition">${data.weather[0].description}</p>
+                    </div> 
+                </div>
+            `;
+
+            favSection.appendChild(favDiv);
+        } catch (error) {
+            console.error("Error fetching favorite city data", error);
+        }
+    });
+}
+
+
+document.addEventListener("click", (event) => {
+    if (event.target.closest(".delete-btn")) {
+        const city = event.target.closest(".delete-btn").getAttribute("data-city");
+        removeFavorite(city);
+    }
+});
+
+
+favBtn.onclick = () => {
+    const favCity = document.querySelector(".location");
+
+    if (favCity) {
+        const city = favCity.textContent.split(",")[0];
+        saveFavorite(city);
+    } else {
+        console.log("City name not found!");
+    }
+};
+
+
+
+function saveFavorite(city) {
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        localStorage.setItem("favoriteCities", JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+function removeFavorite(city) {
+    const index = favorites.indexOf(city);
+    if (index > -1) {
+        favorites.splice(index, 1);
+        localStorage.setItem("favoriteCities", JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+displayFavorites();

@@ -199,4 +199,113 @@ main {
 }
 .forecast .days img:hover {
   transform: scale(1.3);
+}
+
+.favs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+.favs .fav-box {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  margin: 10px;
+}
+.favs .fav-box p {
+  font-size: 2vh;
+  padding-left: 40px;
+}
+.favs .fav-box button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: rgb(213, 213, 213);
+}
+.favs .fav-box button:hover {
+  transform: scale(1.3);
+}
+.favs .fav-container {
+  max-width: 500px;
+  padding: 0;
+  background-color: rgba(3, 102, 249, 0.181);
+  border-radius: 40px;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.629);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.251);
+  text-align: center;
+  margin: 10px auto;
+}
+@media (max-width: 600px) {
+  .favs .fav-container {
+    padding: 10px;
+    width: 90%;
+  }
+}
+
+.fav-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.fav-info .fav-icon-container {
+  width: 40%;
+  justify-content: center;
+}
+.fav-info .fav-icon-container .fav-icon {
+  width: 60%;
+  height: auto;
+}
+.fav-info .fav-icon-container .fav-icon:hover {
+  transform: scale(1.08);
+}
+.fav-info .fav-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+.fav-info .fav-info-container .fav-temperature {
+  font-size: 40px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  .fav-info .fav-info-container .fav-temperature {
+    font-size: 30px;
+  }
+}
+.fav-info .fav-info-container .fav-location {
+  font-size: 10px;
+}
+.fav-info .fav-info-container .fav-condition {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.fav-info .fav-info-container .fav-extra-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 8px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+.fav-info .fav-info-container .fav-extra-info img {
+  width: 20px;
+  height: auto;
+}
+.fav-info .fav-info-container .fav-extra-info img:hover {
+  transform: scale(1.3);
+}
+@media (max-width: 600px) {
+  .fav-info {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
 }/*# sourceMappingURL=weather.css.map */
